@@ -1,0 +1,41 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# toscr
+
+<!-- badges: start -->
+[![R build status](https://github.com/zkamvar/toscr/workflows/R-CMD-check/badge.svg)](https://github.com/zkamvar/toscr/actions)
+<!-- badges: end -->
+
+The goal of {toscr} is to read, manipulate, and write `touchosc` files.
+
+## Installation
+
+The development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("zkamvar/toscr")
+```
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(toscr)
+basic <- system.file("extdata", "basic.touchosc", package = "toscr")
+x <- tosc_read(basic)
+xml2::xml_find_all(x, ".//control")
+```
